@@ -80,11 +80,8 @@ function updateSummary() {
     expenseAmountEl.textContent = formatCurrency(Math.abs(expenses));
 }
 
-function formatCurrency(number) {
-    return new Intl.NumberFormat("en-US", {
-        style: "currency",
-        currency: "USD",
-    }).format(number);
+function formatCalories(number) {
+    return `${number.toLocaleString()} kcal`;
 }
 
 function removeTransaction(id) {
