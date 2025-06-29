@@ -126,6 +126,38 @@ h2 {
   font-weight: 400;
 }
 
+/* Calorie range indicators */
+.balance-container.low-calories {
+  border-left: 4px solid #ef4444;
+}
+
+.balance-container.low-calories h1 {
+  color: #ef4444 !important;
+  background: none !important;
+  -webkit-text-fill-color: #ef4444 !important;
+}
+
+.balance-container.moderate-calories {
+  border-left: 4px solid #10b981;
+}
+
+.balance-container.moderate-calories h1 {
+  background: linear-gradient(135deg, #c084fc, #fbbf24) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.balance-container.high-calories {
+  border-left: 4px solid #f59e0b;
+}
+
+.balance-container.high-calories h1 {
+  color: #f59e0b !important;
+  background: none !important;
+  -webkit-text-fill-color: #f59e0b !important;
+}
+
 .summary {
   display: grid;
   grid-template-columns: 1fr 1fr;
