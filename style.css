@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
 
 * {
   margin: 0;
@@ -46,7 +45,7 @@ body::before {
   -webkit-backdrop-filter: blur(20px);
   /* border: 1px solid rgba(233, 213, 255, 0.3); */
   padding: 2.5rem;
-  border-radius: 30px;
+  border-radius: 45px;
   box-shadow: 
     0 25px 50px rgba(189, 127, 255, 0.286),
     0 0 0 1px rgba(255, 255, 255, 0.4);
@@ -63,7 +62,7 @@ body::before {
   background: linear-gradient(135deg, 
     rgba(255, 255, 255, 0.1) 0%, 
     rgba(233, 213, 255, 0.05) 100%);
-  border-radius: 30px;
+  border-radius: 45px;
   pointer-events: none;
 }
 
@@ -77,21 +76,6 @@ h1 {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-}
-
-h1::before {
-  content: '\f0f2';
-  font-family: 'Font Awesome 6 Free';
-  font-weight: 900;
-  background: linear-gradient(135deg, #c084fc, #fbbf24);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: 2.5rem;
 }
 
 h2 {
@@ -99,25 +83,6 @@ h2 {
   margin-bottom: 1rem;
   font-size: 1.25rem;
   font-weight: 500;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.transaction-container h2::before {
-  content: '\f0ca';
-  font-family: 'Font Awesome 6 Free';
-  font-weight: 900;
-  color: #c084fc;
-  font-size: 1.1rem;
-}
-
-.form-container h2::before {
-  content: '\f044';
-  font-family: 'Font Awesome 6 Free';
-  font-weight: 900;
-  color: #fbbf24;
-  font-size: 1.1rem;
 }
 
 .balance-container {
@@ -128,7 +93,7 @@ h2 {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   /* border: 1px solid rgba(233, 213, 255, 0.3); */
-  border-radius: 25px;
+  border-radius: 45px;
   box-shadow: 
     0 15px 35px rgba(233, 213, 255, 0.15),
     inset 0 1px 0 rgba(255, 255, 255, 0.4);
@@ -145,7 +110,7 @@ h2 {
   background: linear-gradient(135deg, 
     rgba(255, 255, 255, 0.2) 0%, 
     rgba(233, 213, 255, 0.1) 100%);
-  border-radius: 25px;
+  border-radius: 45px;
   pointer-events: none;
 }
 
@@ -159,21 +124,6 @@ h2 {
   -webkit-text-fill-color: transparent;
   position: relative;
   font-weight: 400;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-}
-
-.balance-container h1::before {
-  content: '\f53a';
-  font-family: 'Font Awesome 6 Free';
-  font-weight: 900;
-  background: linear-gradient(135deg, #c084fc, #fbbf24);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: 2.2rem;
 }
 
 .summary {
@@ -190,14 +140,14 @@ h2 {
   gap: 30px;
 }
 
-.income,
-.expenses {
+.calories,
+.protein {
   background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   /* border: 1px solid rgba(233, 213, 255, 0.2); */
   padding: 18px;
-  border-radius: 20px;
+  border-radius: 45px;
   box-shadow: 
     0 10px 30px rgba(233, 213, 255, 0.15),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
@@ -205,8 +155,8 @@ h2 {
   position: relative;
 }
 
-.income::before,
-.expenses::before {
+.calories::before,
+.protein::before {
   content: '';
   position: absolute;
   top: 0;
@@ -216,69 +166,47 @@ h2 {
   background: linear-gradient(135deg, 
     rgba(255, 255, 255, 0.1) 0%, 
     rgba(233, 213, 255, 0.05) 100%);
-  border-radius: 20px;
+  border-radius: 45px;
   pointer-events: none;
 }
 
-.income:hover,
-.expenses:hover {
+.calories:hover,
+.protein:hover {
   transform: translateY(-3px);
   box-shadow: 
     0 15px 40px rgba(233, 213, 255, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 
-.income h3 {
-  color: #fbbf24;
-  font-size: 1.1rem;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.income h3::before {
-  content: '\f062';
-  font-family: 'Font Awesome 6 Free';
-  font-weight: 900;
-  color: #fbbf24;
-  font-size: 1rem;
-}
-
-.expenses h3 {
+.calories h3 {
   color: #c084fc;
   font-size: 1.1rem;
   font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 8px;
 }
 
-.expenses h3::before {
-  content: '\f063';
-  font-family: 'Font Awesome 6 Free';
-  font-weight: 900;
-  color: #c084fc;
-  font-size: 1rem;
+.protein h3 {
+  color: #fbbf24;
+  font-size: 1.1rem;
+  font-weight: 600;
 }
 
-.income p,
-.expenses p {
+.calories p,
+.protein p {
   margin-top: 6px;
   font-size: 1.5rem;
   font-weight: 400;
   position: relative;
 }
 
-.income p {
-  color: #fbbf24;
-}
-
-.expenses p {
+.calories p {
   color: #c084fc;
 }
 
-.transaction-container {
+.protein p {
+  color: #fbbf24;
+}
+
+.meal-container {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -286,15 +214,16 @@ h2 {
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   /* border: 1px solid rgba(254, 243, 199, 0.3); */
-  border-radius: 25px;
+  border-radius: 45px;
   padding: 25px;
+  padding-left: 40px;
   box-shadow: 
     0 15px 35px rgba(254, 243, 199, 0.15),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
   position: relative;
 }
 
-.transaction-container::before {
+.meal-container::before {
   content: '';
   position: absolute;
   top: 0;
@@ -304,11 +233,11 @@ h2 {
   background: linear-gradient(135deg, 
     rgba(255, 255, 255, 0.1) 0%, 
     rgba(254, 243, 199, 0.05) 100%);
-  border-radius: 25px;
+  border-radius: 45px;
   pointer-events: none;
 }
 
-#transaction-list {
+#meal-list {
   list-style: none;
   max-height: 500px;
   overflow-y: auto;
@@ -317,26 +246,26 @@ h2 {
   margin-top: 15px;
 }
 
-#transaction-list::-webkit-scrollbar {
+#meal-list::-webkit-scrollbar {
   width: 6px;
 }
 
-#transaction-list::-webkit-scrollbar-track {
+#meal-list::-webkit-scrollbar-track {
   background: rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
-#transaction-list::-webkit-scrollbar-thumb {
+#meal-list::-webkit-scrollbar-thumb {
   background: rgba(233, 213, 255, 0.5);
-  border-radius: 10px;
+  border-radius: 20px;
   backdrop-filter: blur(10px);
 }
 
-#transaction-list::-webkit-scrollbar-thumb:hover {
+#meal-list::-webkit-scrollbar-thumb:hover {
   background: rgba(233, 213, 255, 0.7);
 }
 
-.transaction {
+.meal {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -357,7 +286,7 @@ h2 {
   color: #4a5568;
 }
 
-.transaction::before {
+.meal::before {
   content: '';
   position: absolute;
   top: 0;
@@ -383,22 +312,22 @@ h2 {
   }
 }
 
-.transaction:hover {
+.meal:hover {
   transform: translateY(-2px);
   box-shadow: 
     0 12px 35px rgba(233, 213, 255, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 
-.transaction.income {
+.meal.calories {
   border-left-color: #fbbf24;
 }
 
-.transaction.expense {
+.meal.protein {
   border-left-color: #c084fc;
 }
 
-.transaction .delete-btn {
+.meal .delete-btn {
   background: rgba(233, 213, 255, 0.2);
   backdrop-filter: blur(10px);
   /* border: 1px solid rgba(233, 213, 255, 0.3); */
@@ -408,27 +337,16 @@ h2 {
   opacity: 0;
   transition: all 0.3s ease;
   padding: 6px 10px;
-  border-radius: 8px;
+  border-radius: 14px;
   margin-left: 12px;
   font-weight: 400;
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.transaction .delete-btn::before {
-  content: '\f2ed';
-  font-family: 'Font Awesome 6 Free';
-  font-weight: 900;
-  font-size: 0.9rem;
-}
-
-.transaction:hover .delete-btn {
+.meal:hover .delete-btn {
   opacity: 1;
 }
 
-.transaction .delete-btn:hover {
+.meal .delete-btn:hover {
   background: rgba(233, 213, 255, 0.3);
   transform: scale(1.1);
   box-shadow: 0 4px 15px rgba(233, 213, 255, 0.3);
@@ -440,7 +358,8 @@ h2 {
   -webkit-backdrop-filter: blur(15px);
   /* border: 1px solid rgba(233, 213, 255, 0.3); */
   padding: 30px;
-  border-radius: 25px;
+  padding-left: 40px;
+  border-radius: 45px;
   box-shadow: 
     0 15px 35px rgba(233, 213, 255, 0.15),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
@@ -460,7 +379,7 @@ h2 {
   background: linear-gradient(135deg, 
     rgba(255, 255, 255, 0.1) 0%, 
     rgba(233, 213, 255, 0.05) 100%);
-  border-radius: 25px;
+  border-radius: 45px;
   pointer-events: none;
 }
 
@@ -476,33 +395,17 @@ h2 {
 }
 
 label {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  display: block;
   margin-bottom: 8px;
   color: #4a5568;
   font-weight: 400;
-}
-
-label[for="expense-text"]::before {
-  content: '\f02d';
-  font-family: 'Font Awesome 6 Free';
-  font-weight: 900;
-  color: #c084fc;
-}
-
-label[for="expense-amount"]::before {
-  content: '\f155';
-  font-family: 'Font Awesome 6 Free';
-  font-weight: 900;
-  color: #fbbf24;
 }
 
 input {
   width: 100%;
   padding: 14px 18px;
   border: none;
-  border-radius: 15px;
+  border-radius: 25px;
   font-size: 1rem;
   transition: all 0.3s ease;
   background: rgba(255, 255, 255, 0.8);
@@ -549,7 +452,7 @@ button[type="submit"] {
   background: linear-gradient(135deg, #c084fc 0%, #fbbf24 100%);
   color: white;
   border: none;
-  border-radius: 15px;
+  border-radius: 25px;
   cursor: pointer;
   font-size: 1.1rem;
   font-weight: 400;
@@ -562,17 +465,6 @@ button[type="submit"] {
   /* border: 1px solid rgba(233, 213, 255, 0.2); */
   position: relative;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
-
-button[type="submit"]::after {
-  content: '\f067';
-  font-family: 'Font Awesome 6 Free';
-  font-weight: 900;
-  font-size: 1rem;
 }
 
 button[type="submit"]::before {
@@ -585,7 +477,7 @@ button[type="submit"]::before {
   background: linear-gradient(135deg, 
     rgba(255, 255, 255, 0.15) 0%, 
     rgba(255, 255, 255, 0.05) 100%);
-  border-radius: 15px;
+  border-radius: 25px;
   pointer-events: none;
 }
 
@@ -608,7 +500,7 @@ button[type="submit"]:active {
     gap: 20px;
   }
 
-  #transaction-list {
+  #meal-list {
     max-height: 300px;
   }
 }
@@ -635,12 +527,12 @@ button[type="submit"]:active {
     font-size: 2.8rem;
   }
 
-  .income p,
-  .expenses p {
+  .calories p,
+  .protein p {
     font-size: 1.5rem;
   }
 
-  .transaction {
+  .meal {
     padding: 14px 16px;
   }
 
@@ -649,7 +541,7 @@ button[type="submit"]:active {
   }
 
   .form-container,
-  .transaction-container {
+  .meal-container {
     padding: 20px;
   }
 

@@ -1,99 +1,97 @@
-const balanceEl = document.getElementById("balance");
-const incomeAmountEl = document.getElementById("income-amount");
-const expenseAmountEl = document.getElementById("expense-amount");
-const transactionListEl = document.getElementById("transaction-list");
-const transactionFormEl = document.getElementById("transaction-form");
+const totalCaloriesEl = document.getElementById("total-calories");
+const caloriesAmountEl = document.getElementById("calories-amount");
+const proteinAmountEl = document.getElementById("protein-amount");
+const mealListEl = document.getElementById("meal-list");
+const mealFormEl = document.getElementById("meal-form");
 const descriptionEl = document.getElementById("description");
-const amountEl = document.getElementById("amount");
+const caloriesEl = document.getElementById("calories");
+const proteinEl = document.getElementById("protein");
 
-let transactions = JSON.parse(localStorage.getItem("transactions")) || [];
+let meals = JSON.parse(localStorage.getItem("meals")) || [];
 
-transactionFormEl.addEventListener("submit", addTransaction);
+mealFormEl.addEventListener("submit", addMeal);
 
-function addTransaction(e) {
+function addMeal(e) {
     e.preventDefault();
 
     // get form values
     const description = descriptionEl.value.trim();
-    const amount = parseFloat(amountEl.value);
+    const calories = parseFloat(caloriesEl.value);
+    const protein = parseFloat(proteinEl.value);
 
-    transactions.push({
-        id:Date.now(),
+    meals.push({
+        id: Date.now(),
         description,
-        amount
+        calories,
+        protein
     });
 
-    localStorage.setItem("transactions", JSON.stringify(transactions));
+    localStorage.setItem("meals", JSON.stringify(meals));
 
-    updateTransactionList();
-    updateSummary();
+    updateMealList();
+    updateNutritionSummary();
 
-    transactionFormEl.reset();
+    mealFormEl.reset();
 }
 
-function updateTransactionList() {
-    transactionListEl.innerHTML = "";
+function updateMealList() {
+    mealListEl.innerHTML = "";
 
     // most recent first
-    const sortedTransactions = [...transactions].reverse()
+    const sortedMeals = [...meals].reverse()
 
-    //add each transaction to teh list
-    sortedTransactions.forEach((transaction) => {
-        const transactionEl = createTransactionElement(transaction);
-        transactionListEl.appendChild(transactionEl);
+    //add each meal to the list
+    sortedMeals.forEach((meal) => {
+        const mealEl = createMealElement(meal);
+        mealListEl.appendChild(mealEl);
     });
 }
 
-function createTransactionElement(transaction) {
+function createMealElement(meal) {
     const li = document.createElement("li");
-    li.classList.add("transaction");
-    li.classList.add(transaction.amount > 0 ? "income" : "expense");
+    li.classList.add("meal");
+    li.classList.add("calories");
 
     li.innerHTML = `
-    <span>${transaction.description}</span>
+    <span>${meal.description}</span>
     <span>
-
-    ${formatCurrency(transaction.amount)}
-        <button class="delete-btn" onclick="removeTransaction(${transaction.id})">x</button>
+        ${formatCalories(meal.calories)} | ${formatProtein(meal.protein)}
+        <button class="delete-btn" onclick="removeMeal(${meal.id})">x</button>
     </span>
     `;
 
     return li;
 }
 
-function updateSummary() {
-    // Calculating teh total balance
-
-    const balance = transactions.reduce((acc, transaction) => acc + transaction.amount, 0);
-
-    const income = transactions
-        .filter(transaction => transaction.amount > 0)
-        .reduce((acc, transaction) => acc + transaction.amount, 0);
-
-    const expenses = transactions
-        .filter(transaction => transaction.amount < 0)
-        .reduce((acc, transaction) => acc + transaction.amount, 0);
+function updateNutritionSummary() {
+    // Calculating the total calories and protein
+    const totalCalories = meals.reduce((acc, meal) => acc + meal.calories, 0);
+    const totalProtein = meals.reduce((acc, meal) => acc + meal.protein, 0);
 
     // update ui
-    balanceEl.textContent = formatCurrency(balance);
-    incomeAmountEl.textContent = formatCurrency(income);
-    expenseAmountEl.textContent = formatCurrency(Math.abs(expenses));
+    totalCaloriesEl.textContent = formatCalories(totalCalories);
+    caloriesAmountEl.textContent = formatCalories(totalCalories);
+    proteinAmountEl.textContent = formatProtein(totalProtein);
 }
 
 function formatCalories(number) {
     return `${number.toLocaleString()} kcal`;
 }
 
-function removeTransaction(id) {
-    // filter out the one we wantd to delete
-    transactions = transactions.filter(transaction => transaction.id !== id);
+function formatProtein(number) {
+    return `${number.toLocaleString()} g`;
+}
 
-    localStorage.setItem("transactions", JSON.stringify(transactions));
+function removeMeal(id) {
+    // filter out the one we want to delete
+    meals = meals.filter(meal => meal.id !== id);
 
-    updateTransactionList();
-    updateSummary();
+    localStorage.setItem("meals", JSON.stringify(meals));
+
+    updateMealList();
+    updateNutritionSummary();
 }
 
 // initial render
-updateTransactionList();
-updateSummary();
+updateMealList();
+updateNutritionSummary();
